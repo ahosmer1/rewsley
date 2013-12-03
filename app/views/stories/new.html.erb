@@ -1,25 +1,28 @@
 <% if @story.errors.any? %>
 <h2>the following errors prevented your story from saving:</h2>
 <ul>
-<% @story.errors.full.messages.each do |msg| %>
-<li><%= msg %></li>
+	<% @story.errors.full_messages.each do |msg| %>
+		<li><%= msg %></li>
+	<% end %>
+</ul>
 <% end %>
 <h1>Add a new story</h1>
 <%= form_for @story do |f| %>
-<fieldset>
-<legend>Story</legend>
-<div>
-<%= f.label :title %>
-<%= f.text.field :title %>
-</div>
-<div>
-<%= f.label :link %>
-<%= f.text_field :link %>
-</div>
-<div>
-<%= f.lable :category %>
-<%= f.text_field :category %>
-</div>
-</fieldset>
-<%= f.submit %>
+	<fieldset>
+		<legend>Story</legend>
+		<div>
+			<%= f.label :title %>
+			<%= f.text_field :title %>
+		</div>
+		<div>
+			<%= f.label :link %>
+			<%= f.text_field :link %>
+		</div>
+		<div>
+			<%= f.label :category %>
+			<%= f.text_field :category %>
+		</div>
+	</fieldset>
+
+	<%= f.submit "submit" %>
 <% end %>
